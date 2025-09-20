@@ -8,9 +8,9 @@ const fetchWeather = async (lat: number, lon: number) => {
     console.error("API is not applied. pls check env file.");
     return null;
   }
-  const weatherUrl = `https://vercel.com/maishis-projects/weather-app?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ja`;
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ja`;
   try {
-    const response = await fetch(weatherUrl);
+    const response = await fetch(weatherUrl, { cache: "force-cache" });
     if (!response.ok) {
       throw new Error(
         `HTTP Error: ${response.status} - ${response.statusText}`

@@ -5,9 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.GITHUB_REPOSITORY
-    ? "/" + process.env.GITHUB_REPOSITORY.split("/")[1]
-    : "",
+  basePath: "/weatherApp",
+  assetPrefix: "/weatherApp",
 };
 
 export default nextConfig;
