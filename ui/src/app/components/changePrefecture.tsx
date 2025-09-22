@@ -87,7 +87,7 @@ export default function ChangePrefecture({
   }, [selectedCity]);
 
   const iconUrl = weatherData
-    ? `https://vercel.com/maishis-projects/weather-app${weatherData.weather[0].icon}@2x.png`
+    ? `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
     : "";
 
   return (
