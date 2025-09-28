@@ -13,8 +13,15 @@ jobs:
         with:
           node-version: 18
 
-      - run: npm ci
-      - run: npm run build && npm run export
+      - name: Install dependencies
+        run: |
+          cd ui
+          npm ci
+
+      - name: Build & Export
+        run: |
+          cd ui
+          npm run build && npm run export
         env:
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
 
@@ -22,4 +29,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: ./ui/out
