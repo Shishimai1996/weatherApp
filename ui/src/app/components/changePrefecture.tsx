@@ -61,7 +61,7 @@ export default function ChangePrefecture({
       try {
         console.log(selectedCity);
         const response = await fetch(
-          `/api/weather?lat=${selectedCity.lat}&lon=${selectedCity.lon}`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/weather?lat=${selectedCity.lat}&lon=${selectedCity.lon}`
         );
         const data = await response.json();
         console.log(data);
