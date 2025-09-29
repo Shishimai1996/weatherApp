@@ -23,7 +23,7 @@ jobs:
         working-directory: ./ui
         run: npm run build
         env:
-          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          NEXT_PUBLIC_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_API_BASE_URL  }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

@@ -56,12 +56,18 @@ export default function ChangePrefecture({
       return;
     }
 
+    const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (!apiBaseUrl) {
+      console.error("API base URL is missing. Check NEXT_PUBLIC_API_BASE_URL.");
+      return;
+    }
+
     async function fetchNewWeather() {
       setLoading(true);
       try {
         console.log(selectedCity);
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/weather?lat=${selectedCity.lat}&lon=${selectedCity.lon}`
+          `${apiBaseUrl}/api/weather?lat=${selectedCity.lat}&lon=${selectedCity.lon}`
         );
         const data = await response.json();
         console.log(data);
