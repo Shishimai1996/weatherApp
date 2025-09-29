@@ -8,7 +8,7 @@ const fetchWeather = async (lat: number, lon: number) => {
     console.error("API is not applied. pls check env file.");
     return null;
   }
-  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ja`;
+  const weatherUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/weather?lat=${lat}&lon=${lon}`;
   try {
     const response = await fetch(weatherUrl, { cache: "force-cache" });
     if (!response.ok) {
