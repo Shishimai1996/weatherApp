@@ -1,12 +1,13 @@
 {
-  "name": "api",
+  "name": "weather-api-bff",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Vercel Serverless Function for weather API.",
+  "main": "weather.ts",
   "scripts": {
-    "dev": "vercel dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "vercel dev"
   },
   "dependencies": {
-    "@vercel/node": "^2.3.0"
+    "@vercel/node": "^3.0.7",
+    "typescript": "^5.0.0"
   }
 }
