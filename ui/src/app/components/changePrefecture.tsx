@@ -48,11 +48,15 @@ export default function ChangePrefecture({
         }
       : null
   );
-  const isInitialMount = useRef(true);
+  // const isInitialMount = useRef(true);
 
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
+    // if (isInitialMount.current) {
+    //   isInitialMount.current = false;
+    //   return;
+    // }
+
+    if (initialWeatherData !== null && selectedCity.name === CITIES[0].name) {
       return;
     }
 
