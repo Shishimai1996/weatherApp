@@ -5,6 +5,8 @@ const apiKey = process.env.OPENWEATHER_API_KEY;
 const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const fetchWeather = async (lat: number, lon: number) => {
+  console.log("DEBUG: API Key available?", !!apiKey);
+  console.log("DEBUG: API Base URL available?", !!apiBaseUrl);
   if (!apiKey || !apiBaseUrl) {
     console.error("API is not applied. pls check env file.");
     return null;
