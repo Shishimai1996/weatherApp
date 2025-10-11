@@ -1,6 +1,12 @@
 {
   "framework": null,
   "outputDirectory": "api-output",
+  "builds": [
+    {
+      "src": "weather.ts",
+      "use": "@vercel/node"
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
