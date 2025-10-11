@@ -8,19 +8,22 @@
           "key": "Access-Control-Allow-Origin",
           "value": "https://shishimai1996.github.io"
         },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS" },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+        },
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/weather",
-      "dest": "/weather.ts"
+      "source": "/api/weather",
+      "destination": "/weather.ts"
     },
     {
-      "src": "/api/weather/(.*)",
-      "dest": "/weather.ts"
+      "source": "/api/weather/(.*)",
+      "destination": "/weather.ts"
     }
   ]
 }
