@@ -9,9 +9,12 @@ const fetchWeather = async (lat: number, lon: number) => {
     return null;
   }
   const weatherUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}api/weather?lat=${lat}&lon=${lon}`;
+  console.log("SERVER FETCHING URL:", weatherUrl);
   try {
     const response = await fetch(weatherUrl, { cache: "force-cache" });
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error("SERVER RESPONSE NOT OK:", response.status, errorText);
       throw new Error(
         `HTTP Error: ${response.status} - ${response.statusText}`
       );
