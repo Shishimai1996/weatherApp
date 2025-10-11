@@ -1,5 +1,26 @@
 {
-  "version": 2,
-  "builds": [{ "src": "api/**/*.ts", "use": "@vercel/node" }],
-  "routes": [{ "src": "/api/(.*)", "dest": "api/$1.ts" }]
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://shishimai1996.github.io"
+        },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/weather",
+      "dest": "/weather.ts"
+    },
+    {
+      "src": "/api/weather/(.*)",
+      "dest": "/weather.ts"
+    }
+  ]
 }
